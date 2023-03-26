@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private static $companies,$company;
     public function addCompany(){
         return  view('addcompany');

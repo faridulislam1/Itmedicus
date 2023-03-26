@@ -3,18 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FrontEndController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
+
+
+
+Route::get('/', [FrontEndController::class, 'frontEnd']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
 Route::post('/user-register', [App\Http\Controllers\HomeController::class, 'userRegisterer'])->name('user.register');
-
 //Company Route
 Route::get('/add-company',[CompanyController::class,'addCompany'])->name('add.company');
 Route::post('/store-company',[CompanyController::class,'storeCompany'])->name('store.company');

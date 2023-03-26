@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     public function user(){
         return view('admin.user.add_user');
     }
